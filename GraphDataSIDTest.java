@@ -1,0 +1,190 @@
+package com.bigdata.samples;
+
+import java.io.BufferedInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.util.Properties;
+
+import org.apache.hadoop.conf.Configuration;
+import org.openrdf.model.Resource;
+import org.openrdf.model.Statement;
+import org.openrdf.model.URI;
+import org.openrdf.model.Value;
+import org.openrdf.model.ValueFactory;
+import org.openrdf.repository.Repository;
+import org.openrdf.repository.RepositoryConnection;
+import org.openrdf.repository.RepositoryException;
+import org.openrdf.repository.RepositoryResult;
+import org.openrdf.rio.RDFFormat;
+
+import com.bigdata.config.ConfigurationException;
+import com.bigdata.journal.ITx;
+import com.bigdata.rdf.sail.BigdataSail;
+import com.bigdata.rdf.sail.BigdataSailRepository;
+import com.bigdata.rdf.store.AbstractTripleStore;
+import com.bigdata.rdf.store.ScaleOutTripleStore;
+import com.bigdata.service.jini.JiniClient;
+import com.bigdata.service.jini.JiniFederation;
+
+public class GraphDataSIDTest {
+	
+	
+	JiniFederation fed  = null;
+	
+	Repository repo = null;
+	
+	 Configuration conf =null;
+	 
+	 ValueFactory vf = null;
+	 
+	private static final String namespace = "social";
+	
+	
+	public static void main(String args[]){
+		 
+		GraphDataSIDTest basetest = new GraphDataSIDTest();
+		
+
+		basetest.setupBGConnection();
+		
+		try {
+			basetest.loadData();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+
+	}
+	
+	
+	public void loadData() throws Exception{
+		 RepositoryConnection cxn = repo.getConnection();
+	        cxn.setAutoCommit(false);
+	        try {
+	            cxn.remove((Resource)null, (URI)null, (Value)null);
+	            cxn.commit();
+	            
+	            cxn.add(getReader(getClass(),"semanticdata_sid_1.rdf"), 
+	                "", RDFFormat.RDFXML);
+	            cxn.commit();
+	            
+	            RepositoryResult<Statement> results = 
+	                cxn.getStatements(null, null, null, false);
+	            while(results.hasNext()) {
+	               System.out.println(results.next());
+	            }
+	            
+	        } catch (Exception ex) {
+	            cxn.rollback();
+	            throw ex;
+	        } finally {
+	            // close the repository connection
+	            cxn.close();
+	        }
+		
+	}
+	
+	
+	
+	private Properties loadProperties(String resource) throws IOException{
+		Properties p = new Properties();
+        InputStream is = getClass().getResourceAsStream(resource);
+        p.load(new InputStreamReader(new BufferedInputStream(is)));
+        return p;
+	}
+	
+
+	
+	 public Reader getReader(Class c, String resource) {
+	        InputStream is = c.getResourceAsStream(resource);
+	        return new InputStreamReader(new BufferedInputStream(is));
+	    }
+	
+	protected void setupBGConnection(){
+		System.out.println("Inside the setup iniitalizing the DB");
+		 String[] config = {"cluster.config"};
+		 try {
+    		fed =  new JiniClient(config).connect();
+			createTripleStore(fed);			
+			
+			 
+			//   Adding data!! 
+			  
+			 
+			 AbstractTripleStore tripleStore = null;
+			 BigdataSail sail = null;
+			 Properties properties = null;
+			 
+			 
+			 tripleStore = 
+			         openTripleStore(fed, ITx.UNISOLATED);
+			sail = new BigdataSail(tripleStore);
+			repo = new BigdataSailRepository(sail);
+			/*final String propertiesFile = "provenance.properties";
+
+			final Properties properties = loadProperties(propertiesFile);
+			final BigdataSail sail = new BigdataSail(properties);
+		    repo = new BigdataSailRepository(sail);*/
+	        repo.initialize();		
+	        vf = repo.getValueFactory();
+			
+		} catch (ConfigurationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	
+	 /**
+     * Create our triple store instance if it doesn't exist.
+     * 
+     * @param fed the jini federation
+     * @return the triple store instance
+     * @throws Exception
+     */
+    private static AbstractTripleStore createTripleStore(JiniFederation fed) 
+        throws Exception {
+
+        AbstractTripleStore tripleStore = null;
+        tripleStore = (AbstractTripleStore) fed.getResourceLocator().locate(
+            namespace, ITx.UNISOLATED);
+        
+        if (tripleStore == null) {
+            
+            /*
+             * Pick up properties configured for the client as defaults.
+             */
+            final Properties properties = fed.getClient().getProperties(
+                    GraphHBaseTestSID.class.getName());
+            
+            tripleStore = new ScaleOutTripleStore(
+                fed, namespace, ITx.UNISOLATED, properties);
+
+            // create the triple store.
+            tripleStore.create();
+            
+        }
+        
+        return tripleStore;
+        
+    }
+    
+    private static AbstractTripleStore openTripleStore(
+	        JiniFederation fed, long timestamp) throws Exception {
+	        
+	        AbstractTripleStore tripleStore = null;
+	        
+	        // locate the resource declaration (aka "open").
+	        tripleStore = (AbstractTripleStore) fed.getResourceLocator().locate(
+	            namespace, timestamp);
+	        
+	       return tripleStore;			        
+	   }
+
+}
