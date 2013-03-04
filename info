@@ -1,0 +1,60 @@
+Waiting 5000ms for service discovery.
+Zookeeper is running.
+Discovered 1 jini service registrars.
+   192.168.192.106
+Discovered 10 services
+Discovered 0 stale bigdata services.
+Discovered 9 live bigdata services.
+Discovered 1 other services.
+Bigdata services by serviceIface:
+  There are 3 instances of com.bigdata.jini.start.IServicesManagerService on 3 hosts
+  There are 1 instances of com.bigdata.journal.ITransactionService on 1 hosts
+  There are 1 instances of com.bigdata.service.IClientService on 1 hosts
+  There are 2 instances of com.bigdata.service.IDataService on 2 hosts
+  There are 1 instances of com.bigdata.service.ILoadBalancerService on 1 hosts
+  There are 1 instances of com.bigdata.service.IMetadataService on 1 hosts
+Bigdata services by hostname:
+  There are 2 live bigdata services on athena
+    There are 1 com.bigdata.jini.start.IServicesManagerService services
+    There are 1 com.bigdata.service.IDataService services
+  There are 5 live bigdata services on graphmaster
+    There are 1 com.bigdata.jini.start.IServicesManagerService services
+    There are 1 com.bigdata.journal.ITransactionService services
+    There are 1 com.bigdata.service.IClientService services
+    There are 1 com.bigdata.service.ILoadBalancerService services
+    There are 1 com.bigdata.service.IMetadataService services
+  There are 2 live bigdata services on slave
+    There are 1 com.bigdata.jini.start.IServicesManagerService services
+    There are 1 com.bigdata.service.IDataService services
+
+
+----------------------------------------------------------------------------------------------
+
+graphmaster (106)
+Mon Mar 04 11:10:53 IST 2013
+Linux/3.2.0-29-generic amd64
+Intel(R) Core(TM) i5-2400 CPU @ 3.10GHz Family 6 Model 42 Stepping 7, GenuineIntel #CPU=4
+Oracle Corporation 1.7.0_02
+
+-----------------------------------------------------------------------------------------------
+
+athena (102)
+Mon Mar 04 11:13:44 IST 2013
+Linux/3.0.0-24-generic amd64
+Intel(R) Core(TM) i5-2400 CPU @ 3.10GHz Family 6 Model 42 Stepping 7, GenuineIntel #CPU=4
+Oracle Corporation 1.7.0_02
+
+------------------------------------------------------------------------------------------------
+
+slave (105)
+Mon Mar 04 11:13:44 IST 2013
+Linux/3.0.0-12-generic amd64
+Intel(R) Core(TM) i5-2400 CPU @ 3.10GHz Family 6 Model 42 Stepping 7, GenuineIntel #CPU=1
+Oracle Corporation 1.7.0_02
+
+------------------------------------------------------------------------------------------------------
+
+error log:
+
+
+
