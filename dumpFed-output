@@ -1,0 +1,57 @@
+./dumpFed.sh 
+java version "1.7.0_02"
+Java(TM) SE Runtime Environment (build 1.7.0_02-b13)
+Java HotSpot(TM) 64-Bit Server VM (build 22.0-b10, mixed mode)
+
+log4j:WARN No appenders could be found for logger (com.bigdata.service.IBigdataClient).
+log4j:WARN Please initialize the log4j system properly.
+
+BIGDATA(R)
+
+                   Flexible
+                   Reliable
+                  Affordable
+      Web-Scale Computing for the Enterprise
+
+Copyright SYSTAP, LLC 2006-2012.  All rights reserved.
+
+athena
+Mon Mar 04 17:02:23 IST 2013
+Linux/3.0.0-24-generic amd64
+Intel(R) Core(TM) i5-2400 CPU @ 3.10GHz Family 6 Model 42 Stepping 7, GenuineIntel #CPU=4
+Oracle Corporation 1.7.0_02
+buildVersion=1.2.2
+
+Dependency         License                                                       
+ICU                http://source.icu-project.org/repos/icu/icu/trunk/license.html
+bigdata-ganglia    http://www.apache.org/licenses/LICENSE-2.0.html               
+colt               http://acs.lbl.gov/software/colt/license.html                 
+commons-codec      http://www.apache.org/licenses/LICENSE-2.0.html               
+commons-fileupload http://www.apache.org/licenses/LICENSE-2.0.html               
+commons-io         http://www.apache.org/licenses/LICENSE-2.0.html               
+commons-logging    http://www.apache.org/licenses/LICENSE-2.0.html               
+dsiutils           http://www.gnu.org/licenses/lgpl-2.1.html                     
+fastutil           http://www.apache.org/licenses/LICENSE-2.0.html               
+flot               http://www.opensource.org/licenses/mit-license.php            
+high-scale-lib     http://creativecommons.org/licenses/publicdomain              
+httpclient         http://www.apache.org/licenses/LICENSE-2.0.html               
+httpclient-cache   http://www.apache.org/licenses/LICENSE-2.0.html               
+httpcore           http://www.apache.org/licenses/LICENSE-2.0.html               
+httpmime           http://www.apache.org/licenses/LICENSE-2.0.html               
+jetty              http://www.apache.org/licenses/LICENSE-2.0.html               
+jquery             https://github.com/jquery/jquery/blob/master/MIT-LICENSE.txt  
+log4j              http://www.apache.org/licenses/LICENSE-2.0.html               
+lucene             http://www.apache.org/licenses/LICENSE-2.0.html               
+nanohttp           http://elonen.iki.fi/code/nanohttpd/#license                  
+nxparser           http://sw.deri.org/2006/08/nxparser/license.txt               
+river              http://www.apache.org/licenses/LICENSE-2.0.html               
+servlet-api        http://www.apache.org/licenses/LICENSE-2.0.html               
+sesame             http://www.openrdf.org/download.jsp                           
+slf4j              http://www.slf4j.org/license.html                             
+zookeeper          http://www.apache.org/licenses/LICENSE-2.0.html               
+
+Timestamp,IndexName,IndexPartitionName,PartitionId,ServiceUUID,ServiceName,Hostname,ServiceCode,SourceCount,SourceJournalCount,SourceSegmentCount,SumEntryCounts,SumNodeCounts,SumLeafCounts,SumSegmentBytes,SumSegmentNodeBytes,SumSegmentLeafBytes,DataDirFreeSpace,BytesUnderManagement,JournalBytesUnderManagement,IndexSegmentBytesUnderManagement,ManagedJournalCount,ManagedSegmentCount,AsynchronousOverflowCount,LeftSeparator,RightSeparator,View,Cause,IndexMetadata
+1362396704628,social.lex.BLOBS,social.lex.BLOBS#0,0,04891760-40e0-4a5a-9aec-ca40759db3cc,DataServer/logicalService0000000000/04891760-40e0-4a5a-9aec-ca40759db3cc,192.168.192.102,DS0,1,1,0,0,0,1,0,0,0,61014073344,10485760,10485760,0,1,0,0,[],null,"[JournalMetadata{filename=journal4889500090502516546.jnl;uuid=d5d25d31-1346-4b18-8e16-e989337c7a1b;createTime=1362395930163;commitTime=0}]","com.bigdata.mdi.IndexPartitionCause{Register;overflowCounter=0;timestamp=1362396038563}","addrMetadata=0; name=social.lex.BLOBS; indexType=BTree; indexUUID=743339bd-e463-4ba5-9da1-72836dd665f9; branchingFactor=32; pmd={ partitionId=0; leftSeparator=[]; rightSeparator=null; resourceMetadata=[JournalMetadata{filename=journal4889500090502516546.jnl;uuid=d5d25d31-1346-4b18-8e16-e989337c7a1b;createTime=1362395930163;commitTime=0}]; cause=com.bigdata.mdi.IndexPartitionCause{Register;overflowCounter=0;timestamp=1362396038563}}; btreeClassName=com.bigdata.btree.BTree; checkpointClass=com.bigdata.btree.Checkpoint; nodeKeysCoder=com.bigdata.btree.raba.codec.FrontCodedRabaCoder$DefaultFrontCodedRabaCoder@5fbfe745{ratio=8}; btreeRecordCompressorFactory=N/A; tupleSerializer=com.bigdata.rdf.lexicon.BlobsTupleSerializer{; keyBuilderFactory=com.bigdata.btree.keys.ASCIIKeyBuilderFactory{ initialCapacity=8}; leafKeysCoder=com.bigdata.btree.raba.codec.FrontCodedRabaCoder$DefaultFrontCodedRabaCoder@2fe8941f{ratio=8}; leafValuesCoder=com.bigdata.btree.raba.codec.SimpleRabaCoder@4e5497cb}; conflictResolver=N/A; deleteMarkers=true; versionTimestamps=false; versionTimestampFilters=false; isolatable=false; rawRecords=true; maxRecLen=0; bloomFilterFactory=N/A; overflowHandler=N/A; splitHandler=com.bigdata.rdf.lexicon.BlobsIndexSplitHandler@13b9b89a; indexSegmentBranchingFactor=512; indexSegmentBufferNodes=false; indexSegmentRecordCompressorFactory=N/A; asynchronousIndexWriteConfiguration=com.bigdata.btree.AsynchronousIndexWriteConfiguration{ masterQueueCapacity=5000; masterChunkSize=10000; masterChunkTimeoutNanos=50000000; sinkIdleTimeoutNanos=9223372036854775807; sinkPollTimeoutNanos=50000000; sinkQueueCapacity=5000; sinkChunkSize=10000; sinkChunkTimeoutNanos=9223372036854775807}; scatterSplitConfiguration=com.bigdata.btree.ScatterSplitConfiguration{enabled=true; percentOfSplitThreshold=0.25; dataServiceCount=0; indexPartitionCount=0}"
+1362396704628,social.lex.ID2TERM,social.lex.ID2TERM#0,0,04891760-40e0-4a5a-9aec-ca40759db3cc,DataServer/logicalService0000000000/04891760-40e0-4a5a-9aec-ca40759db3cc,192.168.192.102,DS0,1,1,0,237,1,14,0,0,0,61014073344,10485760,10485760,0,1,0,0,[],null,"[JournalMetadata{filename=journal4889500090502516546.jnl;uuid=d5d25d31-1346-4b18-8e16-e989337c7a1b;createTime=1362395930163;commitTime=0}]","com.bigdata.mdi.IndexPartitionCause{Register;overflowCounter=0;timestamp=1362396038405}","addrMetadata=0; name=social.lex.ID2TERM; indexType=BTree; indexUUID=fa507776-a455-4cce-b4f2-56814bc02997; branchingFactor=32; pmd={ partitionId=0; leftSeparator=[]; rightSeparator=null; resourceMetadata=[JournalMetadata{filename=journal4889500090502516546.jnl;uuid=d5d25d31-1346-4b18-8e16-e989337c7a1b;createTime=1362395930163;commitTime=0}]; cause=com.bigdata.mdi.IndexPartitionCause{Register;overflowCounter=0;timestamp=1362396038405}}; btreeClassName=com.bigdata.btree.BTree; checkpointClass=com.bigdata.btree.Checkpoint; nodeKeysCoder=com.bigdata.btree.raba.codec.FrontCodedRabaCoder$DefaultFrontCodedRabaCoder@7990a036{ratio=8}; btreeRecordCompressorFactory=N/A; tupleSerializer=com.bigdata.rdf.lexicon.Id2TermTupleSerializer{; keyBuilderFactory=com.bigdata.btree.keys.ASCIIKeyBuilderFactory{ initialCapacity=9}; leafKeysCoder=com.bigdata.btree.raba.codec.FrontCodedRabaCoder$DefaultFrontCodedRabaCoder@6067794{ratio=8}; leafValuesCoder=com.bigdata.btree.raba.codec.SimpleRabaCoder@129498a3}; conflictResolver=N/A; deleteMarkers=true; versionTimestamps=false; versionTimestampFilters=false; isolatable=false; rawRecords=true; maxRecLen=16; bloomFilterFactory=N/A; overflowHandler=N/A; splitHandler=N/A; indexSegmentBranchingFactor=512; indexSegmentBufferNodes=false; indexSegmentRecordCompressorFactory=N/A; asynchronousIndexWriteConfiguration=com.bigdata.btree.AsynchronousIndexWriteConfiguration{ masterQueueCapacity=5000; masterChunkSize=10000; masterChunkTimeoutNanos=50000000; sinkIdleTimeoutNanos=9223372036854775807; sinkPollTimeoutNanos=50000000; sinkQueueCapacity=5000; sinkChunkSize=10000; sinkChunkTimeoutNanos=9223372036854775807}; scatterSplitConfiguration=com.bigdata.btree.ScatterSplitConfiguration{enabled=true; percentOfSplitThreshold=0.25; dataServiceCount=0; indexPartitionCount=0}"
+1362396704628,social.lex.search,social.lex.search#0,0,04891760-40e0-4a5a-9aec-ca40759db3cc,DataServer/logicalService0000000000/04891760-40e0-4a5a-9aec-ca40759db3cc,192.168.192.102,DS0,1,1,0,257,1,16,0,0,0,61014073344,10485760,10485760,0,1,0,0,[],null,"[JournalMetadata{filename=journal4889500090502516546.jnl;uuid=d5d25d31-1346-4b18-8e16-e989337c7a1b;createTime=1362395930163;commitTime=0}]","com.bigdata.mdi.IndexPartitionCause{Register;overflowCounter=0;timestamp=1362396038689}","addrMetadata=0; name=social.lex.search; indexType=BTree; indexUUID=eb6f13f0-d6eb-4c87-84de-20f32a0134c7; branchingFactor=32; pmd={ partitionId=0; leftSeparator=[]; rightSeparator=null; resourceMetadata=[JournalMetadata{filename=journal4889500090502516546.jnl;uuid=d5d25d31-1346-4b18-8e16-e989337c7a1b;createTime=1362395930163;commitTime=0}]; cause=com.bigdata.mdi.IndexPartitionCause{Register;overflowCounter=0;timestamp=1362396038689}}; btreeClassName=com.bigdata.btree.BTree; checkpointClass=com.bigdata.btree.Checkpoint; nodeKeysCoder=com.bigdata.btree.raba.codec.FrontCodedRabaCoder$DefaultFrontCodedRabaCoder@1f0e874{ratio=8}; btreeRecordCompressorFactory=N/A; tupleSerializer=com.bigdata.rdf.lexicon.RDFFullTextIndexTupleSerializer{; keyBuilderFactory=com.bigdata.btree.keys.DefaultKeyBuilderFactory{ initialCapacity=0; collator=ICU; locale=en_IN; strength=Primary; decomposition=null}; leafKeysCoder=com.bigdata.btree.raba.codec.FrontCodedRabaCoder$DefaultFrontCodedRabaCoder@6f2d18aa{ratio=8}; leafValuesCoder=com.bigdata.btree.raba.codec.SimpleRabaCoder@79ae79eb}; conflictResolver=N/A; deleteMarkers=true; versionTimestamps=false; versionTimestampFilters=false; isolatable=false; rawRecords=false; maxRecLen=256; bloomFilterFactory=N/A; overflowHandler=N/A; splitHandler=N/A; indexSegmentBranchingFactor=512; indexSegmentBufferNodes=false; indexSegmentRecordCompressorFactory=N/A; asynchronousIndexWriteConfiguration=com.bigdata.btree.AsynchronousIndexWriteConfiguration{ masterQueueCapacity=5000; masterChunkSize=10000; masterChunkTimeoutNanos=50000000; sinkIdleTimeoutNanos=9223372036854775807; sinkPollTimeoutNanos=50000000; sinkQueueCapacity=5000; sinkChunkSize=10000; sinkChunkTimeoutNanos=9223372036854775807}; scatterSplitConfiguration=com.bigdata.btree.ScatterSplitConfiguration{enabled=true; percentOfSplitThreshold=0.25; dataServiceCount=0; indexPartitionCount=0}"
+1362396704628,social.lex.TERM2ID,social.lex.TERM2ID#0,0,04891760-40e0-4a5a-9aec-ca40759db3cc,DataServer/logicalService0000000000/04891760-40e0-4a5a-9aec-ca40759db3cc,192.168.192.102,DS0,1,1,0,237,1,14,0,0,0,61014073344,10485760,10485760,0,1,0,0,[],null,"[JournalMetadata{filename=journal4889500090502516546.jnl;uuid=d5d25d31-1346-4b18-8e16-e989337c7a1b;createTime=1362395930163;commitTime=0}]","com.bigdata.mdi.IndexPartitionCause{Register;overflowCounter=0;timestamp=1362396038320}","addrMetadata=0; name=social.lex.TERM2ID; indexType=BTree; indexUUID=47d4d3a3-e5d8-4a91-b713-43a3ca05b041; branchingFactor=32; pmd={ partitionId=0; leftSeparator=[]; rightSeparator=null; resourceMetadata=[JournalMetadata{filename=journal48895000905025hduser@athena:~/NFSHome/bigdata/sgraph/bin$ 
